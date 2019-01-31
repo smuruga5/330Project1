@@ -7,6 +7,7 @@ Project    : CSE 330 Project1 Milestone
 
 #include <iostream>
 #include <fstream>
+#include<string>
 using namespace std;
 
 int main(int argc, char * argv[])
@@ -15,7 +16,8 @@ int main(int argc, char * argv[])
     string line;//String to read the input from File Line by Line
     int count;//Counter to keep track of Line
     int offset;//Variable to find the Word and its position
-    int size=(sizeof argv[1]/8)-1;//Size of Word to be searched
+    string name= argv[1];
+    int size= name.size();//Size of Word to be searched
     file.open(argv[2]);
 
     while(file)
@@ -32,9 +34,9 @@ int main(int argc, char * argv[])
 
     if((offset)!=string::npos)
     {
-       cout<< argv[2]<<", "<<count<<", "<<offset<<", "<< (offset+size)<<": "<<argv[1]<<endl; //Displaying in the required Output Format
+       cout<< argv[2]<<", "<<count<<", "<<pos<<", "<< (size+pos)<<": "<<argv[1]<<endl; //Displaying in the required Output Format
 
-       pos=tell-offset; //To reset the Position
+       pos=tell-offset;//To reset the Position
     }
     }
     return 0;
